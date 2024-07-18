@@ -29,7 +29,7 @@ export const userSignup = async (req, res, next) => {
         await user.save();
         // create token and store cookie
         res.clearCookie(COOKIE_NAME, {
-            httpOnly: true,
+            httpOnly: false,
             signed: true,
             sameSite: "none",
             secure: true,
@@ -41,7 +41,7 @@ export const userSignup = async (req, res, next) => {
             path: "/",
             domain: ".vercel.app",
             expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-            httpOnly: true,
+            httpOnly: false,
             signed: true,
             sameSite: "none",
             secure: true,
@@ -68,7 +68,7 @@ export const userLogin = async (req, res, next) => {
             return res.status(401).send("Invalid Email or Password");
         // Correct Password
         res.clearCookie(COOKIE_NAME, {
-            httpOnly: true,
+            httpOnly: false,
             signed: true,
             sameSite: "none",
             secure: true,
@@ -80,7 +80,7 @@ export const userLogin = async (req, res, next) => {
             path: "/",
             domain: ".vercel.app",
             expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-            httpOnly: true,
+            httpOnly: false,
             signed: true,
             sameSite: "none",
             secure: true,
@@ -134,7 +134,7 @@ export const userLogout = async (req, res, next) => {
                 .json({ "Permissions didn't match: ": "Unauthorized" });
         }
         res.clearCookie(COOKIE_NAME, {
-            httpOnly: true,
+            httpOnly: false,
             signed: true,
             sameSite: "none",
             secure: true,
