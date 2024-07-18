@@ -40,6 +40,7 @@ export const userSignup = async (
     res.clearCookie(COOKIE_NAME, {
       httpOnly: true,
       signed: true,
+      sameSite: "none",
       domain: "onrender.com",
       path: "/",
     });
@@ -50,6 +51,7 @@ export const userSignup = async (
       expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       httpOnly: true,
       signed: true,
+      sameSite: "none",
     });
     return res
       .status(201)
@@ -81,6 +83,7 @@ export const userLogin = async (
     res.clearCookie(COOKIE_NAME, {
       httpOnly: true,
       signed: true,
+      sameSite: "none",
       domain: "onrender.com",
       path: "/",
     });
@@ -95,6 +98,7 @@ export const userLogin = async (
       expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       httpOnly: true,
       signed: true,
+      sameSite: "none",
     });
     return res.status(200).json({
       message: "OK",
@@ -155,6 +159,7 @@ export const userLogout = async (
     res.clearCookie(COOKIE_NAME, {
       httpOnly: true,
       signed: true,
+      sameSite: "none",
       domain: "onrender.com",
       path: "/",
     });
