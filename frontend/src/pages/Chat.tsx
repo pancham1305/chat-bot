@@ -1,13 +1,13 @@
 import { Box, Avatar, Typography, Button, IconButton } from '@mui/material'
 import {red} from '@mui/material/colors'
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { useRef } from 'react'
 import { IoMdSend } from 'react-icons/io'
 import { useAuth } from '../context/AuthContext'
 import ChatItem from '../components/chat/ChatItem';
 import { getUserChats, sendChatRequest, deleteUserChats } from '../helpers/api-communicator'
 import { toast } from 'react-hot-toast'
-import { Navigate, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 type Message = {
   role: string;
   parts: string;
@@ -17,8 +17,8 @@ const Chat = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [messages, setmessages] = useState<Message[]>([]);
   const auth = useAuth();
-
-
+  
+  
   const handleSubmit = async () => {
     const content = inputRef.current?.value as string;
     if (inputRef && inputRef.current) {
@@ -27,6 +27,7 @@ const Chat = () => {
     const newMessage = { role: 'user', parts: content };
     setmessages((prev) => [...prev, newMessage]);
     const chatData = await sendChatRequest(content);
+    // @ts-ignore
     const TMessage = chatData.chats.map((chat) => {
       const x:string = chat.role;
       const y: string = chat.parts[0].text
@@ -54,6 +55,7 @@ const Chat = () => {
     if (auth?.isLogged && auth.user) {
       toast.loading("Fetching Chat Data", { id: "loadchats" });
       getUserChats().then((data) => {
+        // @ts-ignore
         const TMessage = data.chats.map((chat) => {
           const x:string = chat.role;
           const y: string = chat.parts[0].text
