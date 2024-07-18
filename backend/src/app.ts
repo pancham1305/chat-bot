@@ -8,7 +8,7 @@ config();
 const app = express();
 app.use(
   cors({
-    origin: "https://chat-bot-git-main-pancham1305s-projects.vercel.app/",
+    origin: "https://chat-bot-roan-xi.vercel.app/",
     credentials: true,
   })
 );
