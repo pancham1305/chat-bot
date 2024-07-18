@@ -42,13 +42,13 @@ export const userSignup = async (
       signed: true,
       sameSite: "none",
       secure: true,
-      domain: ".onrender.com",
+      domain: ".vercel.app",
       path: "/",
     });
     const token = createToken(user._id.toString(), user.email, "7d");
     res.cookie(COOKIE_NAME, token, {
       path: "/",
-      domain: ".onrender.com",
+      domain: ".vercel.app",
       expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       httpOnly: true,
       signed: true,
@@ -87,7 +87,7 @@ export const userLogin = async (
       signed: true,
       sameSite: "none",
       secure: true,
-      domain: ".onrender.com",
+      domain: ".vercel.app",
       path: "/",
     });
     const token = createToken(
@@ -97,7 +97,7 @@ export const userLogin = async (
     );
     res.cookie(COOKIE_NAME, token, {
       path: "/",
-      domain: ".onrender.com",
+      domain: ".vercel.app",
       expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       httpOnly: true,
       signed: true,
@@ -165,7 +165,7 @@ export const userLogout = async (
       signed: true,
       sameSite: "none",
       secure: true,
-      domain: ".onrender.com",
+      domain: ".vercel.app",
       path: "/",
     });
     return res.status(200).json({
