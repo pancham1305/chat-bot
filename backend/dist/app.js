@@ -6,7 +6,10 @@ import appRouter from "./routes/index.js";
 import cors from "cors";
 config();
 const app = express();
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({
+    origin: "https://chat-bot-roan-xi.vercel.app/",
+    credentials: true,
+}));
 app.use(express.json());
 app.use(cookieparser(process.env.COOKIE_SECRET));
 // remove the following line in production
