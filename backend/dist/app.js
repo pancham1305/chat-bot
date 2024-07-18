@@ -7,7 +7,7 @@ import cors from "cors";
 config();
 const app = express();
 app.use(cors({
-    origin: "https://chat-bot-roan-xi.vercel.app",
+    origin: true,
     credentials: true,
 }));
 app.use(express.json());
