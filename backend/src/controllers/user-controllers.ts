@@ -41,6 +41,7 @@ export const userSignup = async (
       httpOnly: true,
       signed: true,
       sameSite: "none",
+      secure: true,
       domain: "onrender.com",
       path: "/",
     });
@@ -52,6 +53,7 @@ export const userSignup = async (
       httpOnly: true,
       signed: true,
       sameSite: "none",
+      secure: true,
     });
     return res
       .status(201)
@@ -84,6 +86,7 @@ export const userLogin = async (
       httpOnly: true,
       signed: true,
       sameSite: "none",
+      secure: true,
       domain: "onrender.com",
       path: "/",
     });
@@ -99,6 +102,7 @@ export const userLogin = async (
       httpOnly: true,
       signed: true,
       sameSite: "none",
+      secure: true,
     });
     return res.status(200).json({
       message: "OK",
@@ -160,6 +164,7 @@ export const userLogout = async (
       httpOnly: true,
       signed: true,
       sameSite: "none",
+      secure: true,
       domain: "onrender.com",
       path: "/",
     });
